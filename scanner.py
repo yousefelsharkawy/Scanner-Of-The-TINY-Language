@@ -7,6 +7,7 @@ class Token:
     def __str__(self):
         return "Token({type}, {value})".format(type=self.type, value=self.value)
 
+
 #dictionary of all tokens in tiny language and their corresponding values
 tokens = {
     '+': 'PLUS',
@@ -72,6 +73,13 @@ class lexer:
                     return Token(tokens[':='], ':=')
                 else:
                     self.error()
-            # TODO: implement the rest of the DFAs in here 
+            # TODO: implement the rest of the DFAs in here
+            if self.current_char == "+":
+                self.advance()
+                return Token(tokens['+'],'+')
+             
 
-            
+
+
+
+    
